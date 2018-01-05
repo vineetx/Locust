@@ -1,18 +1,36 @@
 from locust import HttpLocust, TaskSet, task
+import uuid
+from datetime import datetime
+import json
+import csv
 
-request = {
-    Dictionay
-}
+headers={'Content-Type' : "application/json"}
+
+item_array = []
+
+with open('<csv file.csv>') as my_file:
+	for line in my_file:
+		item_array.append(line)
+
+def newdict():
+	try:
+		code = item_array.pop()
+		request = {
+		   'dictionary':'1'
+		}
+		return request
+	except Exception as e:
+		print("Code Over !!")
+
 
 class Tasks(TaskSet):
-	def on_start(self):
-		self.login()
-
-	def login(self):
-		self.client.post("/login", {'username': '<>', 'password': '<>'})
-
+	@task()
 	def redeemption(self):
-		self.client.post("api", req)
+		request = newdict()
+		try:
+			self.client.post("<api/ /path>", data=json.dumps(request), headers=headers)
+		except Exception as e:
+			print("Code Over !!")
 
 class Tasks(HttpLocust):
 	task_set = Tasks
