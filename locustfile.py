@@ -1,20 +1,19 @@
 from locust import HttpLocust, TaskSet, task
-import uuid
-from datetime import datetime
 import json
 import csv
 
 headers={'Content-Type' : "application/json"}
 
-item_array = []
+#Dynamic requets
+#item_array = []
 
-with open('<csv file.csv>') as my_file:
-	for line in my_file:
-		item_array.append(line)
+#with open('<csv file.csv>') as my_file:
+#	for line in my_file:
+#		item_array.append(line)
 
 def newdict():
 	try:
-		code = item_array.pop()
+#		code = item_array.pop()
 		request = {
 		   'dictionary':'1'
 		}
